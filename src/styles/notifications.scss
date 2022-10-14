@@ -1,0 +1,25 @@
+.vue-notification-group{
+  @media screen and (min-width: 992px) {
+    width: 400px!important;
+  }
+  @media screen and (max-width: 350px) {
+    width: 100%!important;
+  }
+  .vue-notification-template{
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 14px;
+    background: rgba(68, 164, 252, .9);
+    @media screen and (max-width: 350px) {
+      padding: 10px;
+    }
+    &.error{
+      background: #E54D42;
+      border-left-color: #B82E24;
+    }
+  }
+  .notification-content{
+    font-weight: 600;
+    margin-top: 10px;
+  }
+}

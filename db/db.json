@@ -1,0 +1,63 @@
+{
+  "cart": [
+    {
+      "id": 1,
+      "title": "Новая булочка",
+      "description": "Наша ОБНОВЛЁННАЯ улитка с лососем и шпинатом тому подтверждение.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShGAbLHKVj3Bvbu4WVN86CgVKEmzSKFYPiXg&usqp=CAU",
+      "price": 44.99,
+      "recommended_items": []
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Новая булочка",
+      "description": "Наша ОБНОВЛЁННАЯ улитка с лососем и шпинатом тому подтверждение.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShGAbLHKVj3Bvbu4WVN86CgVKEmzSKFYPiXg&usqp=CAU",
+      "price": 44.99,
+      "recommended_items": []
+    },
+    {
+      "id": 2,
+      "title": "Клубничная булочка",
+      "description": "Тонкое хрустящее слоёное тесто🥐\nНачинка из нежного творожного крема и соус из клубники, жимолости и малины.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq3-mPBpKbJ_cTTpN_xQESzAfi0zroPjg7tw&usqp=CAU",
+      "price": 39.99,
+      "recommended_items": []
+    },
+    {
+      "id": 3,
+      "title": "Слоеная булочка",
+      "description": "Нежное слоёное тесто по авторскому рецепту с добавлением натурального сливочного масла.",
+      "image": "https://hlebda.ru/wp-content/uploads/2020/07/%D0%B1%D1%83%D0%BB%D0%BE%D1%87%D0%BA%D0%B0-%D1%81-%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BA%D0%BE%D0%B9.jpg",
+      "price": 28.99,
+      "recommended_items": []
+    },
+    {
+      "id": 4,
+      "title": "Новая булочка",
+      "description": "В наших сосисках в тесте вы не найдёте ничего лишнего: только лёгкое хрустящее слоёное тесто и сливочная сочная сосиска.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKzoI-SvZtat22Rb9rMApbDycddRStGZTwdA&usqp=CAU",
+      "price": 84.99,
+      "recommended_items": []
+    },
+    {
+      "id": 5,
+      "title": "Ржаной хлеб",
+      "description": "Мы заботимся о вас и хотим, чтобы вы могли сделать правильный выбор даже тогда, когда нас нет рядом",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvEop17AaoSo_DNznSNayx6Em0nTVp6A4BsD8mXcXraH3e_Nu2LVgMh0PY_Sn5dHHqcxE&usqp=CAU",
+      "price": 35.99,
+      "recommended_items": []
+    },
+    {
+      "id": 6,
+      "title": "Слойка с грушей и карамелью",
+      "description": "Хрустящее слоёное тесто с нежным заварным кремом. Начинка из свежей сочной груши, солёной карамели и карамелизированных грецких орехов.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqPtGBjZv1p0x6X7yKbPTvMMe0WczDSH3gKsR-Pj-Itl5J3J-6T019PrHjOIGl2f2Koeg&usqp=CAU",
+      "price": 95.99,
+      "recommended_items": []
+    }
+  ],
+  "recommended": []
+}
