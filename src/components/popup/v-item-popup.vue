@@ -13,11 +13,14 @@
               <p class="mb-1 md-mb-4"> {{ product_data.description }} </p>
               <p class="mb-2 md-mb-4"> {{ product_data.ingredients }}</p>
 
-              <p class="h5 mb-2">Пищевая ценность в 100 гр.:</p>
-              <p class="mb-0">Ккал: {{ product_data.ccal }}</p>
-              <p class="mb-0">белки: {{ product_data.protein }}</p>
-              <p class="mb-0">жиры: {{ product_data.fat }}</p>
-              <p class="mb-0">сахар: {{ product_data.sugar }}</p>
+              <p class="h5 mb-2">
+                {{ product_data.ccal == 0 && product_data.protein == 0 && product_data.fat == 0 && product_data.sugar == 0 
+                  ? "" : "Пищевая ценность в 100 гр.:"}}
+              </p>
+              <p class="mb-0"> {{ product_data.ccal == 0 ? "" : 'Ккал: ' + product_data.ccal }}</p>
+              <p class="mb-0"> {{ product_data.protein == 0 ? "" : 'белки: ' + product_data.protein }}</p>
+              <p class="mb-0"> {{ product_data.fat == 0 ? "" : 'жиры: ' + product_data.fat }}</p>
+              <p class="mb-0"> {{ product_data.sugar == 0 ? "" : 'сахар: ' + product_data.sugar }}</p>
             </div>
           </div>
 
@@ -38,8 +41,13 @@
                     class="btn btn-success"
                     @click="addToCart(product_data.id, this.quantity)"
                 >
-                  Добавить
-                  <i class="bi bi-cart ps-2"></i>
+                  <i class="bi bi-cart px-2"></i>
+                </button>
+                <button
+                    class="btn btn-danger ms-1"
+                    @click="deleteItemsFromCart(product_data.id)"
+                >
+                  <i class="bi bi-trash px-2"></i>
                 </button>
               </div>
             </div>
@@ -58,7 +66,7 @@ import {unlockBodyScroll} from "../functions/bodyScroll";
 export default {
   name: "v-item-popup",
   // components: {VItemPopupControls},
-  computed: mapGetters(["GET_DOMAIN"]),
+  computed: mapGetters(["GET_DOMAIN", "GET_PORT"]),
   props:{
     product_data: {
       type: Object,
@@ -81,8 +89,9 @@ export default {
       unlockBodyScroll();
     },
     getImageUrl(){
+      console.log(this.product_data)
       return this.product_data.images
-          ? this.GET_DOMAIN + ":" + thus.GET_PORT + this.product_data.images[Object.keys(this.product_data.images)[0]].url
+          ? this.GET_DOMAIN + ":" + this.GET_PORT + this.product_data.images[Object.keys(this.product_data.images)[0]].url
           : ''
     },
     addToCart(id, quantity = 1){
