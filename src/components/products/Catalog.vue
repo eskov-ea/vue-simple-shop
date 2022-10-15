@@ -17,6 +17,7 @@
             :key="product.id"
             v-bind:product_data="product"
             v-bind:DOMAIN="GET_DOMAIN"
+            v-bind:PORT="GET_PORT"
             v-bind:amount="GET_OBJECT_CART[product.id]"
         />
       </div>
@@ -31,7 +32,7 @@ import ProductItem from "./v-product-item";
 export default {
   name: "Catalog",
   components: {ProductItem},
-  computed: mapGetters(["GET_PRODUCTS", "GET_DOMAIN", "GET_OBJECT_CART"]),
+  computed: mapGetters(["GET_PRODUCTS", "GET_DOMAIN", "GET_PORT", "GET_OBJECT_CART"]),
   mounted(){
   }
 }

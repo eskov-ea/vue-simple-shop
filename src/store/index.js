@@ -75,6 +75,9 @@ export default createStore({
     GET_DOMAIN(state) {
       return state.DOMAIN;
     },
+    GET_PORT(state) {
+      return state.PORT;
+    },
     GET_POPUP_CONDITION(state){
       return state.popup;
     },

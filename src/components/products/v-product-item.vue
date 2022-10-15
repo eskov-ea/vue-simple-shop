@@ -3,7 +3,7 @@
   <div class="item col-12 col-md-6 col-lg-4 col-xl-3 pb-2 d-flex">
     <div class="card w-100">
       <img
-          :src="this.DOMAIN + product_data.images[Object.keys(product_data.images)[0]].url"
+          :src="this.DOMAIN + ':' + this.PORT + product_data.images[Object.keys(product_data.images)[0]].url"
           alt="..."
           class="card-img-top"
           @click="openPopup(product_data)"
@@ -73,6 +73,7 @@ export default {
     },
     openPopup() {
       let itemData = this.product_data;
+      console.log(itemData)
       let itemAmount = this.amount;
       this.OPEN_POPUP({itemData, itemAmount});
       lockBodyScroll();
@@ -92,6 +93,9 @@ export default {
       }
     },
     DOMAIN: {
+      type: String
+    },
+    PORT: {
       type: String
     },
     amount: {

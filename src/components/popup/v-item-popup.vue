@@ -82,7 +82,7 @@ export default {
     },
     getImageUrl(){
       return this.product_data.images
-          ? this.GET_DOMAIN + this.product_data.images[Object.keys(this.product_data.images)[0]].url
+          ? this.GET_DOMAIN + ":" + thus.GET_PORT + this.product_data.images[Object.keys(this.product_data.images)[0]].url
           : ''
     },
     addToCart(id, quantity = 1){
