@@ -25,7 +25,7 @@
             <router-link class="nav-link fs-5" aria-current="page" to="/orders_history">История заказов</router-link>
           </li>
         </ul>
-        <div class="nav-item dropdown">
+        <!-- <div class="nav-item dropdown">
           <a class="nav-link px-0 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Выбор языка
           </a>
@@ -33,7 +33,7 @@
             <li><a class="dropdown-item" href="#">Ru</a></li>
             <li><a class="dropdown-item" href="#">En</a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
