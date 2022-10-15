@@ -33,8 +33,13 @@
                 class="btn btn-success px-1"
                 @click="addToCart(product_data.id, this.quantity)"
             >
-              Добавить
-              <i class="bi bi-cart ps-2"></i>
+              <i class="bi bi-cart px-2"></i>
+            </button>
+            <button
+                class="btn btn-danger mx-1 px-1"
+                @click="deleteItemsFromCart(product_data.id)"
+            >
+              <i class="bi bi-trash px-2"></i>
             </button>
           </div>
         </div>
