@@ -12,7 +12,8 @@
         <v-cart-item
             v-for="item in GET_CART" :key="item.id"
             v-bind:item="item"
-            v-bind:domain="this.GET_DOMAIN"
+            v-bind:DOMAIN="this.GET_DOMAIN"
+            v-bind:PORT="this.GET_PORT"
             @removeItem="removeItem"
         />
       </transition-group>
@@ -44,7 +45,7 @@ export default {
   name: "v-cart",
   components: {VCartRecommendedProduct, VCartRecommended, VCartItem},
   computed: mapGetters(["GET_CART", "GET_OBJECT_CART", "GET_CART_PRODUCT_COUNT", "GET_RELATED_PRODUCTS",
-    "GET_PRODUCTS", "GET_ALL_PRODUCTS_ARRAY", "GET_DOMAIN", "GET_BUILD_ORDER_CART", "GET_TOTAL_COUNT"]),
+    "GET_PRODUCTS", "GET_ALL_PRODUCTS_ARRAY", "GET_DOMAIN", "GET_PORT", "GET_BUILD_ORDER_CART", "GET_TOTAL_COUNT"]),
   methods: {
     ...mapActions(["FETCH_DELETE_ITEMS_FROM_CART", "FETCH_ADD_TO_CART"]),
     ...mapMutations(["UPDATE_IS_FETCHING", "UPDATE_TOTAL_COUNT"]),

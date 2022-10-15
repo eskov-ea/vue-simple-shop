@@ -3,7 +3,7 @@
   <li class="row mb-4">
     <div class="col-md-4">
       <div class="card w-100">
-        <img class="card-img-top" :src="this.domain + item.images[Object.keys(item.images)[0]].url" alt="">
+        <img class="card-img-top" :src="this.DOMAIN + ':' + this.PORT + item.images[Object.keys(item.images)[0]].url" alt="">
       </div>
     </div>
     <div class="col-md-8 d-flex flex-column">
@@ -66,11 +66,14 @@ export default {
         return {};
       }
     },
-    domain: {
+    DOMAIN: {
       type: String,
       default() {
         return '';
       }
+    },
+    PORT: {
+      type: String
     }
   },
   created() {
