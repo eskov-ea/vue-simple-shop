@@ -37,6 +37,7 @@ export default ({
                         body: JSON.stringify(data)
                     });
                 const payload = await res.json();
+                console.log(payload);
                 const orderId = payload.data.id;
                 console.log('orderId --> ', orderId)
                 Echo.private(`order.${orderId}`)

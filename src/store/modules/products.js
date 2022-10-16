@@ -17,10 +17,11 @@ export default ({
                 state.product_items.push(data['data'][key])
                 for(let i in data['data'][key].products) {
                     state.all_products_array.push(data['data'][key].products[i])
-                    // state.related.push(data['data'][key].products[i].related)
                     state.related = {...state.related, ...data['data'][key].products[i].related}
                 }
             }
+            state.product_items.sort( (a, b) => a['sort'] - b['sort'])
+            state.all_products_array.sort( (a, b) => a['sort'] - b['sort'])
         },
         CREATE_RELATED_PRODUCTS(state, data){
             let relatedSet = new Set();

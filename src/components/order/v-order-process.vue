@@ -174,9 +174,6 @@
               </div>
             </div>
           </div>
-          <div v-if="timeDifference" class="info mt-3 text-danger">
-            <p>Обратите внимание, что ваше время {{ timeDifference > 0 ? 'отстает от времени' : 'опережает время'}} на о. Шикотан на {{ Math.abs(timeDifference) }} час </p>
-          </div>
         </div>
     </v-transition-expand>
 
@@ -234,7 +231,7 @@ export default {
       /**
        *  with 60 minutes added
        */
-      let datestamp = dayjs().add(1, 'hour').tz("Asia/Sakhalin");
+      let datestamp = dayjs().add(1, 'hour');
 
       /**
        * simulate a touche event on input

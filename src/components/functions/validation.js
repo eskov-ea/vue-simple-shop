@@ -11,8 +11,7 @@ dayjs.extend(isSameOrBefore);
 
 export const validateTime = (data) => {
     const [h, m] = data.split(':');
-    let time = dayjs().hour(h -1 ).minute(m).tz("Asia/Sakhalin");
-    let approvedTime = dayjs().add(1, 'hour').tz("Asia/Sakhalin");
+    let time = dayjs().hour(h).minute(m);
     /**
      * We check if the order is available to be ordered.
      * We get client's delivery time in sakhalin TZ then we compare it with
