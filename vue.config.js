@@ -13,5 +13,12 @@ module.exports = {
                 prependData: `@import "~@/styles/style.scss";`
             }
         }
+    },
+    pages: {
+        index: {
+          // entry for the page
+        entry: 'src/main.js',
+        title: 'Доступная рыба',
+        },
     }
 }
