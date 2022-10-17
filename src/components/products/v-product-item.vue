@@ -23,20 +23,22 @@
             <button @click="increaseItemQuantity" class="btn btn-light control">+</button>
           </div>
           <div class="cart position-relative">
-            <span
-                class="position-absolute top-0  start-100 translate-middle badge rounded-pill bg-danger"
+            <div class="position-relative d-inline">
+              <span
+                class="position-absolute bottom-0  start-100 translate-middle badge rounded-pill bg-success"
                 :class="{'visually-hidden' : !this.amount}"
             >
               {{this.amount}}
             </span>
-            <button
+              <button
                 class="btn btn-success px-1"
                 @click="addToCart(product_data.id, this.quantity)"
             >
               <i class="bi bi-cart px-2"></i>
             </button>
+            </div>
             <button
-                class="btn btn-danger mx-1 px-1"
+                class="btn btn-danger ms-3 px-1"
                 @click="deleteItemsFromCart(product_data.id)"
             >
               <i class="bi bi-trash px-2"></i>
