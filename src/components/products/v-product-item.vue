@@ -25,7 +25,7 @@
           <div class="cart position-relative">
             <div class="position-relative d-inline">
               <span
-                class="position-absolute bottom-0  start-100 translate-middle badge rounded-pill bg-success"
+                class="position-absolute bottom-0  start-100 translate-middle badge rounded-pill bg-warning"
                 :class="{'visually-hidden' : !this.amount}"
             >
               {{this.amount}}
