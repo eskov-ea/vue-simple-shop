@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse ps-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li @click="closeMobMenu" class="nav-item">
-            <router-link class="nav-link fs-5" aria-current="page" to="/">Меню</router-link>
+            <router-link class="nav-link fs-5" aria-current="page" to="/">Каталог</router-link>
           </li>
           <li @click="closeMobMenu" class="nav-item">
             <router-link class="nav-link fs-5 " aria-current="page" to="/about">О нас</router-link>

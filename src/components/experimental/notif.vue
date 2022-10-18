@@ -2,10 +2,10 @@
   <div id="app">
 <!--    animation-type="velocity"-->
     <notifications group="custom-template"
-                   :duration="15000"
-                   :width="500"
-                   animation-name="v-fade-left"
-                   position="top left">
+        :duration="15000"
+        :width="500"
+        animation-name="v-fade-left"
+        position="top left">
 
       <template slot="body" slot-scope="props">
         <div class="custom-template">
@@ -143,7 +143,6 @@ body {
     color: #2c3e50;
     .content {
       margin: 0 auto;
-      //max-width: 420px;
     }
   }
 }

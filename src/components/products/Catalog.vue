@@ -1,6 +1,6 @@
 <template>
-  <div class="pb-5  ">
-    <ul class="d-flex p-0 product-navigation">
+  <div class="pb-5">
+    <ul v-if="GET_PRODUCTS.length > 1"  class="d-flex p-0 product-navigation">
       <li class="mt-2" v-for="catalog in GET_PRODUCTS" :key="catalog.id">
         <a class="pe-4" :href="'#' + catalog.id"><h5>{{catalog.name}}</h5></a>
       </li>

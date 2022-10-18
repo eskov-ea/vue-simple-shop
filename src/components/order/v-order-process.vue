@@ -44,7 +44,7 @@
         <div class="order_cost mb-5">
           <p class="h6">Сумма заказа: {{ GET_TOTAL_COUNT }} &#8381; </p>
           <v-transition-expand>
-            <p v-show="deliveryChoice === '2'" class="h6 m-0">Сумма доставки: {{ deliveryCost }} &#8381; </p>
+            <p v-show="deliveryChoice === '2' || deliveryChoice === '3'" class="h6 m-0">Сумма доставки: {{ deliveryCost }} &#8381; </p>
           </v-transition-expand>
           <p class="h6 pt-2">Итого: {{ getTotalPrice() }} &#8381; </p>
         </div>
@@ -76,7 +76,7 @@
     </section>
 
       <v-transition-expand>
-        <section v-if="deliveryChoice === '2'" class="address">
+        <section v-if="deliveryChoice === '2' || deliveryChoice === '3'" class="address">
           <h1 class="h1 mb-3">Адрес</h1>
           <div class="order_user_address">
             <div class="row">
@@ -140,29 +140,32 @@
       </div>
     </section>
 
-    <section class="mb-2 mb-md-4">
-      <h1 class="h1 mb-4">Время</h1>
-      <p class="mb-0"> Доставка работает с 9 до 19 часов по местному времени.</p>
-      <div class="d-lg-flex">
-        <div class="form-check pe-5 col-12 col-md-4 p-0 d-flex align-items-center">
-          <input class="form-check-input" type="radio" name="delivery_time" value="sooner" v-model="deliveryTimeOption" id="nearest_time" checked>
-          <label class="form-check-label" for="nearest_time">
-            Ближайшее
-          </label>
-        </div>
-        <div class="form-check pe-5 col-12 p-0 d-flex align-items-md-center flex-column flex-md-row specific_time_block">
-          <div>
-            <input class="form-check-input" type="radio" name="delivery_time"
-                   value="specific" v-model="deliveryTimeOption" id="pick_time"
-                   @change="generateTime"
-            >
-            <label class="form-check-label" for="pick_time">
-              К определенному
+    <v-transition-expand>
+      <section v-if="deliveryChoice === '2' || deliveryChoice === '3'" class="mb-2 mb-md-4">
+        <h1 class="h1 mb-4">Время</h1>
+        <p class="mb-0"> Доставка работает с 9 до 19 часов по местному времени.</p>
+        <div class="d-lg-flex">
+          <div class="form-check pe-5 col-12 col-md-4 p-0 d-flex align-items-center">
+            <input class="form-check-input" type="radio" name="delivery_time" value="sooner" v-model="deliveryTimeOption" id="nearest_time" checked>
+            <label class="form-check-label" for="nearest_time">
+              Ближайшее
             </label>
           </div>
+          <div class="form-check pe-5 col-12 p-0 d-flex align-items-md-center flex-column flex-md-row specific_time_block">
+            <div>
+              <input class="form-check-input" type="radio" name="delivery_time"
+                    value="specific" v-model="deliveryTimeOption" id="pick_time"
+                    @change="generateTime"
+              >
+              <label class="form-check-label" for="pick_time">
+                К определенному
+              </label>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </v-transition-expand>
+
 
     <v-transition-expand>
         <div v-if="deliveryTimeOption === 'specific'">
@@ -170,9 +173,9 @@
             <div :class="{ error: v$.deliveryTime.$errors.length }" class="pb-2 pb-md-0 pe-5 d-flex flex-column">
               <label class="pe-3" for="time_picker">Выберите время:</label>
               <input class="time_input px-2 py-1" type="time" id="time_picker" step="300"
-                     v-model="deliveryTime"
-                     min="9:00"
-                     max="19:00">
+                  v-model="deliveryTime"
+                  min="9:00"
+                  max="19:00">
               <div class="input-errors time_input" v-for="error of v$.deliveryTime.$errors" :key="error.$uid">
                 <div class="error-msg">{{ error.$message }}</div>
               </div>
@@ -181,7 +184,7 @@
             <div :class="{ error: v$.deliveryDate.$errors.length }" class="pb-2 pb-md-0 pe-5 d-flex flex-column">
               <label class="pe-3" for="date_picker">Выберите дату:</label>
               <input class="time_input px-2 py-1" type="date" id="date_picker"
-                     v-model="deliveryDate" >
+                  v-model="deliveryDate" >
               <div class="input-errors time_input" v-for="error of v$.deliveryDate.$errors" :key="error.$uid">
                 <div class="error-msg">{{ error.$message }}</div>
               </div>
@@ -200,7 +203,7 @@
       <div class="mb-3 p-0 d-flex align-items-center">
         <input class="form-check-input" type="checkbox" value="" id="agreement_granted" v-model="agreement">
         <label class="form-check-label px-2" for="agreement_granted">
-          Согласен с правилами сайта
+          Согласен с правилами <a href="/offerta" target="_blank"> публичной оферты </a>
         </label>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
@@ -264,7 +267,13 @@ export default {
       this.agreement = !this.agreement;
     },
     getTotalPrice(){
-      return this.deliveryChoice === '2' ? this.GET_TOTAL_COUNT + this.deliveryCost : this.GET_TOTAL_COUNT ;
+      if (this.deliveryChoice === '1') {
+        return this.GET_TOTAL_COUNT;
+      } else if (this.deliveryChoice === '2') {
+        return this.GET_TOTAL_COUNT + this.deliveryCost;
+      } else {
+        return this.GET_TOTAL_COUNT + this.deliveryCostOutsite;
+      }
     },
     proceedOrder(e){
       if (this.deliveryTimeOption === 'sooner') {
