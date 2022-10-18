@@ -2,7 +2,7 @@
   <div class="pb-5  ">
     <ul class="d-flex p-0 product-navigation">
       <li class="mt-2" v-for="catalog in GET_PRODUCTS" :key="catalog.id">
-        <a class="pe-4" :href="'#' + catalog.id">{{catalog.name}}</a>
+        <a class="pe-4" :href="'#' + catalog.id"><h5>{{catalog.name}}</h5></a>
       </li>
     </ul>
 
@@ -10,7 +10,7 @@
     <div
         v-for="catalog in GET_PRODUCTS" :key="catalog.id"
     >
-      <h1 :id="catalog.id" class="h1 mb-4">{{catalog.name}}</h1>
+      <h3 :id="catalog.id" class="h3 mb-4">{{catalog.name}}</h3>
       <div class="row mb-5">
         <ProductItem class=""
             v-for="product in catalog.products"

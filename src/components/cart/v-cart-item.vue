@@ -5,7 +5,7 @@
       <div class="card w-100">
         <img class="card-img-top" :src="this.DOMAIN + ':' + this.PORT + item.images[Object.keys(item.images)[0]].url" alt="">
       </div>
-    </div>
+    </div>   
     <div class="col-md-8 d-flex flex-column">
 
       <div class="d-flex flex-column align-items-start">

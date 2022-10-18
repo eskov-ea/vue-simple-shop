@@ -1,23 +1,11 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h4 class="title_page">О нас</h4>
     <v-transition-expand>
       <div class="" v-if="expanded">
-        Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.Magna aliquyam erat, sed diam voluptua. At vero eos et
-        accusam et justo duo dolores et ea rebum. Stet clita.
+	<p>АО Управляющая компания «Дальневосточный рыбак» создана в 2017 году в результате объединения в группу нескольких успешных компаний, давно зарекомендовавших себя на рынке рыбной промышленности. Изначально в группу компаний УК «ДВ рыбак» вошли ООО Рыбокомбинат «Островной»,  ООО «Поларис», ООО «Морской транспорт»,  ООО Торговый дом  «Морской регион» и ООО «Восток тур». Так же в УК «ДВ рыбак» входят вспомогательные компании по развитию острова Шикотан такие, как молочно-животноводческая ферма, строительная компания, охранное агентство  и др.</p>
       </div>
     </v-transition-expand>
-    <button class="p-3 btn btn-primary my-2" @click="expanded = !expanded">
-      {{ expanded ? `Shrink` : `Expand` }}
-    </button>
   </div>
 </template>
 <script>

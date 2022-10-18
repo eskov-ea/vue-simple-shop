@@ -1,14 +1,25 @@
 <template>
-    <div>
+    <div>        
+	<div class="container" style="padding-top: 60px; text-align: center;">
+	  <div class="row align-items-start">
+    	    <div class="col">
+              <i class="bi bi-patch-check"></i> <br><b>Бесплатная доставка<br> при заказе от 3000 руб.</b>
+            </div>
+            <div class="col">
+             <i class="bi bi-gem"></i> <br><b>Премиальные продукты<br> ресторанного качества</b>
+           </div>
+          </div>        
+         </div>        
+
       <div class="content">
         <Catalog />
-      </div>
+      </div>       
       <v-item-popup
           v-show="GET_POPUP_CONDITION.isShowPopup"
           v-bind:product_data="GET_POPUP_CONDITION.popupData"
           v-bind:amount="GET_OBJECT_CART[GET_POPUP_CONDITION.popupData.id]"
       />
-      <div class="btn_container">
+      <div class="btn_container" style="z-index: 2;">
         <button class="btn btn-secondary btn-lg"
                 :disabled="!GET_CART.length"
                 :class="{'active': GET_CART.length}"
@@ -85,4 +96,10 @@ export default {
     }
   }
 }
+
+i.bi {
+	font-size: 42px;
+}
+
 </style>
+

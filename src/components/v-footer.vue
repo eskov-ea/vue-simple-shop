@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "v-header"
+  name: "v-footer"
 }
 </script>
 

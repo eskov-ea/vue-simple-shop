@@ -7,7 +7,8 @@
 
     <div v-else>
       <div v-if="Object.keys(GET_ORDERS_HISTORY).length === 0">
-        <h1 class="h1">Вы еще не сделали ни одного заказа.</h1>
+        <br><br><br><br><br><br>
+	<center><h5>Вы еще не сделали ни одного заказа.</h5></center>
       </div>
       <div v-else>
         <v-order-history

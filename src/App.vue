@@ -1,7 +1,6 @@
 <template>
   <main>
     <v-b-header />
-
     <div
         v-if="!GET_IS_FETCHING"
         class="content container"
@@ -21,6 +20,7 @@
     <div v-else class="content">
       <v-loader />
     </div>
+    <v-footer />
     <notifications
      position="bottom left"/>
   </main>
@@ -30,6 +30,7 @@
 import {mapActions, mapGetters, mapMutations} from "vuex";
 import VHeader from "./components/header/v-header";
 import VBHeader from "./components/header/v-b-header";
+import VFooter from "./components/footer/v-footer";
 import Modal from "./components/parts/Modal";
 import VLoader from "./components/parts/v-loader";
 import VOrderStatusPopup from "./components/popup/v-order-status-popup";
@@ -37,7 +38,7 @@ import VNotification from "./components/parts/v-notification";
 
 export default {
   name: "App",
-  components: {VNotification, VOrderStatusPopup, VLoader, Modal, VBHeader, VHeader },
+  components: {VNotification, VOrderStatusPopup, VLoader, Modal, VBHeader, VHeader, VFooter },
   computed: mapGetters(["GET_IS_FETCHING", "GET_PROFILE", "GET_ORDER_NOT_FOUND_MESSAGE"]),
   methods: {
     ...mapActions(["FETCH_PRODUCTS", "FETCH_CART", "FETCH_PROFILE"]),
@@ -104,5 +105,8 @@ html {
 .route-fade-enter-active,
 .route-fade-leave-active {
   transition: opacity 0.4s ease;
+}
+.content {
+  min-height: calc(100vh - 100px);
 }
 </style>

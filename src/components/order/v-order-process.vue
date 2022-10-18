@@ -18,14 +18,27 @@
           <div class="form-check pe-5 col-12 col-md-4 d-flex align-items-center ps-0">
               <input class="form-check-input" type="radio" name="order_delivery" value="2" v-model="deliveryChoice" id="delivery" >
               <label class="form-check-label" for="delivery">
-                Доставка до адреса
+                Доставка в черте города - 250 руб.
+		<br><small>(с 9:00 до 19:00)</small>
               </label>
           </div>
+
+          <div class="form-check pe-5 col-12 col-md-4 d-flex align-items-center ps-0">
+              <input class="form-check-input" type="radio" name="order_delivery" value="3" v-model="deliveryChoice" id="delivery" >
+              <label class="form-check-label" for="delivery">
+                Доставка за городом - 350 руб.
+		<br><small>(с 9:00 до 19:00)</small>
+              </label>
+          </div>
+
           <div class="form-check pe-5 col-12 col-md-4 d-flex align-items-center ps-0">
             <input class="form-check-input" type="radio" name="order_delivery" value="1" v-model="deliveryChoice" id="pick_up">
             <label class="form-check-label" for="pick_up">
-              Самовывоз
+              Самовывоз<br>
+	      <small>(с 8.30 до 17.30)</small>
             </label>
+	    
+
           </div>
         </div>
         <div class="order_cost mb-5">
@@ -102,21 +115,22 @@
     <section class="mb-4">
       <h1 class="h1 mb-4 pt-4">Способ оплаты</h1>
       <div class="d-lg-flex justify-content-between">
-        <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 w-auto">
+<!--              <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 w-auto">
           <input v-model="paymentMethod" value="3" class="form-check-input" type="radio"
                  name="payment_method" id="online_pay" checked>
           <label class="form-check-label" for="online_pay">
             Онлайн на сайте
           </label>
         </div>
-        <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 w-auto">
+-->
+        <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 !w-auto">
           <input v-model="paymentMethod" value="1" class="form-check-input" type="radio"
                  name="payment_method" id="cash_pay">
           <label class="form-check-label" for="cash_pay">
             Наличными при получении
           </label>
         </div>
-        <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 w-auto">
+        <div class="form-check col-12 col-md-4 d-flex align-items-center ps-0 !w-auto">
           <input v-model="paymentMethod" value="2" class="form-check-input" type="radio"
                  name="payment_method" id="card_pay">
           <label class="form-check-label" for="card_pay">
@@ -128,8 +142,7 @@
 
     <section class="mb-2 mb-md-4">
       <h1 class="h1 mb-4">Время</h1>
-      <p class="mb-0"> Доставка работает с 10 до 18 часов по местному времени.</p>
-      <p class="pt-0 mt-0"> Ближайшая доставка осуществляется в течение часа.</p>
+      <p class="mb-0"> Доставка работает с 9 до 19 часов по местному времени.</p>
       <div class="d-lg-flex">
         <div class="form-check pe-5 col-12 col-md-4 p-0 d-flex align-items-center">
           <input class="form-check-input" type="radio" name="delivery_time" value="sooner" v-model="deliveryTimeOption" id="nearest_time" checked>
@@ -158,8 +171,8 @@
               <label class="pe-3" for="time_picker">Выберите время:</label>
               <input class="time_input px-2 py-1" type="time" id="time_picker" step="300"
                      v-model="deliveryTime"
-                     min="10:00"
-                     max="18:00">
+                     min="9:00"
+                     max="19:00">
               <div class="input-errors time_input" v-for="error of v$.deliveryTime.$errors" :key="error.$uid">
                 <div class="error-msg">{{ error.$message }}</div>
               </div>
@@ -290,8 +303,8 @@ export default {
     },
     calculateTimeDiff(){
       let actualtime = dayjs().hour();
-      let shikotime = dayjs().tz("Asia/Sakhalin").hour();
-      this.timeDifference = shikotime - actualtime;
+      let vltime = dayjs().tz("Asia/Vladivostok").hour();
+      this.timeDifference = vltime - actualtime;
     },
   },
   props: {
@@ -304,7 +317,8 @@ export default {
       v$: useVuelidate(),
       // test: null,
       deliveryChoice: '2',
-      deliveryCost: 200,
+      deliveryCost: 250,
+      deliveryCostOutsite: 350,
       clientName: this.profile.name || null,
       clientPhone: this.profile.phone || null,
       clientEmail: this.profile.email || null,
@@ -342,8 +356,8 @@ export default {
 
       deliveryDate: {requiredIf: helpers.withMessage('Некорректная дата доставки2', requiredIf(()=>{
           return this.deliveryTimeOption !== 'sooner'})),
-        validateDate: helpers.withMessage('Некорректная дата доставки', validateDate)
-      }
+        validateDate: helpers.withMessage('Некорректная дата доставки', validateDate)}
+
     }
   },
   mounted() {

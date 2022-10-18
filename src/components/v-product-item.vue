@@ -9,7 +9,7 @@
           :src="product_data.image"
           @click="openPopup"
       >
-    </div>
+    </div> 
     <div :class="'item__body product_info'">
       <div :class="'product_info__title'"> {{ product_data.title }} </div>
       <div :class="'product_info__description'"> {{ product_data.description }} </div>
