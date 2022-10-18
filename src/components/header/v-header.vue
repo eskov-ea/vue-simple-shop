@@ -9,7 +9,7 @@
           </div>
           <menu v-show="!this.mobile" class="header__menu menu">
             <ul>
-              <li><router-link to="/">Меню</router-link></li>
+              <li><router-link to="/">Каталог</router-link></li>
               <li><router-link to="/about">О нас</router-link></li>
               <li><router-link to="/cart">Оформить заказ</router-link></li>
               <li><router-link to="/order">Оформление заказа окно</router-link></li>
