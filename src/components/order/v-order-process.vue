@@ -201,15 +201,21 @@
     </div>
     <div class="agreement">
       <div class="mb-3 p-0 d-flex align-items-center">
+        <input class="form-check-input" type="checkbox" value="" id="offerta_granted" v-model="offerta">
+        <label class="form-check-label px-2" for="offerta_granted">
+          Согласен с правилами <a href="/offerta" target="_blank"> публичной оферты </a>
+        </label>
+      </div>
+      <div class="mb-3 p-0 d-flex align-items-center">
         <input class="form-check-input" type="checkbox" value="" id="agreement_granted" v-model="agreement">
         <label class="form-check-label px-2" for="agreement_granted">
-          Согласен с правилами <a href="/offerta" target="_blank"> публичной оферты </a>
+          Согласен с правилами <a href="/agreement" target="_blank"> обработки персональных данных </a>
         </label>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
         <button @click="getBack" type="button" class="btn btn-primary" data-bs-dismiss="modal">Назад</button>
         <button type="button" class="btn btn-success"
-          @change="acceptAgreement" :disabled="!agreement" @click="proceedOrder" >
+          @change="acceptAgreement" :disabled="!agreement || !offerta" @click="proceedOrder" >
           {{this.paymentMethod === '3' ? 'Оформить заказ и перейти к оплате' : 'Оформить заказ'}}
         </button>
       </div>
@@ -265,6 +271,7 @@ export default {
     },
     acceptAgreement(){
       this.agreement = !this.agreement;
+      this.offerta = !this.offerta;
     },
     getTotalPrice(){
       if (this.deliveryChoice === '1') {
@@ -341,6 +348,7 @@ export default {
       deliveryDate: null,
       clientMessage: null,
       agreement: true,
+      offerta: true,
       timeDifference: null
     }
   },

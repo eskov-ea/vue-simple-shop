@@ -166,6 +166,7 @@ export default {
   background-color: #ffffff;
   z-index: 11;
   border-radius: 5px;
+  overflow: auto;
   @media screen and(max-width: 768px) {
     overflow-y: auto;
     width: 100vw;
@@ -175,6 +176,7 @@ export default {
     margin-top: 10px;
     left: 0;
     transform: translate(0%, 0%);
+    margin-bottom: 50px;
   }
   @media screen and(max-width: 400px){
     padding-bottom: 50px;

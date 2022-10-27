@@ -12,6 +12,7 @@
         <div>
 	    <a href="/privacy">Политика конфиденциальности</a><br>
   	  <a href="/terms">Пользовательское соглашение</a><br>
+  	  <a href="/agreement">Согласие на обработку персональных данных</a><br>
   	  <a href="/offerta">Публичная оферта</a><br>
   	  <a href="/orderinfo">Доставка и оплата</a><br>
   	  <a href="/refund">Возврат</a><br>
