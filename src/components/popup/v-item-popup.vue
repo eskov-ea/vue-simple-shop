@@ -11,7 +11,7 @@
             <div class="col-12 col-md-5 py-4 px-md-4 py-md-4">
               <h2 class="h2 mb-3 md-mb-5"> {{ product_data.name }} </h2>
               <p class="mb-1 md-mb-4"> {{ product_data.description }} </p>
-              <p class="mb-2 md-mb-4"> {{ product_data.ingredients }}</p>
+              <p class="mb-2 md-mb-4"> Состав: {{ product_data.ingredients }}</p>
 
               <p class="h5 mb-2">
                 {{ product_data.ccal == 0 && product_data.protein == 0 && product_data.fat == 0 && product_data.sugar == 0 
