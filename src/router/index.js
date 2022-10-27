@@ -67,7 +67,17 @@ const routes = [
     path: '/order_information',
     name: 'OrderInfoByPin',
     component: () => import(/* webpackChunkName: "about" */ '../views/OrderInfoByPin.vue')
-  }
+  },
+  {
+    path: '/payment',
+    name: 'PaymentAndOrderPolicy',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PaymentAndOrderPolicy.vue')
+  },
+  {
+    path: '/refund',
+    name: 'RefundPolicy',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RefundPolicy.vue')
+  },
 ]
 
 const router = createRouter({

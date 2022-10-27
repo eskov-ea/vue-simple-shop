@@ -6,6 +6,7 @@
           Адрес: г. Владивосток, ул. Дубовая, 6Б<br><br>
 	  Время работы:  8.30 до 17.30<br>
 	  Время доставки: 9:00 до 19:00<br>
+    Юридический адрес: 694520, Сахалинская область, Южно-Курильский р-он, с. Малокурильское, ул. Молодежная, д.10
  
         </div>
         <div>
@@ -13,6 +14,8 @@
 	  <a href="/privacy">Политика конфиденциальности</a><br>
   	  <a href="/terms">Пользовательское соглашение</a><br>
   	  <a href="/offerta">Публичная оферта</a><br>
+  	  <a href="/payment">Доставка и оплата</a><br>
+  	  <a href="/refund">Возврат</a><br>
 
         </div>  
      </footer>
@@ -28,6 +31,7 @@
     background: #e0e0e0;
     min-height: 200px;
     z-index: 0;
+    display: flex;
   }
 
   footer div {
@@ -43,6 +47,9 @@
       float: none;
       background: #e0e0e0;
       width: 95%;
+    }
+    footer {
+      display: block;
     }
   }
 
