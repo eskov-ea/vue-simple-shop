@@ -20,5 +20,9 @@ module.exports = {
         entry: 'src/main.js',
         title: 'Доступная рыба',
         },
+    },
+    chainWebpack: config => {
+        config.plugins.delete('pwa');
+        config.plugins.delete('workbox');
     }
 }
