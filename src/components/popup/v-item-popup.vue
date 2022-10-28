@@ -27,7 +27,9 @@
           <div class="py-0 px-md-4 py-md-4 d-xs-flex justify-content-between align-items-end">
             <div class="d-flex justify-content-between">
               <p class="h4 m-0 amount">Выбрано: {{ amount }} </p>
-              <p class="h4 m-0 amount">{{ product_data.price }}  ₽</p>
+              <div class="d-flex">
+                <p class="h4 m-0 amount">{{ product_data.price }}  ₽</p><p class="h4 m-0 amount">/{{ product_data.weight>0 ? product_data.weight + ' гр.' : product_data.volume + ' мл.'}} </p>
+              </div>
             </div>
             <div class="d-grid gap-2 d-flex justify-content-between justify-xs-content-end  mt-4 ">
               <div class="d-grid gap-2 d-flex align-items-end">
