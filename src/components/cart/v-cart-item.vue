@@ -10,7 +10,7 @@
 
       <div class="d-flex flex-column align-items-start">
         <h2 class="h3"> {{ item.name }} </h2>
-        <p class=""> {{ item.description }}</p>
+        <!-- <p class=""> {{ item.description }}</p> -->
       </div>
       <div class="d-flex flex-row   align-items-end justify-content-between  h-100">
         <div>

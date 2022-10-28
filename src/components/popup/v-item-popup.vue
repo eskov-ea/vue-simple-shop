@@ -28,7 +28,7 @@
             <div class="d-flex justify-content-between">
               <p class="h4 m-0 amount">Выбрано: {{ amount }} </p>
               <div class="d-flex">
-                <p class="h4 m-0 amount">{{ product_data.price }}  ₽</p><p class="h4 m-0 amount">/{{ product_data.weight>0 ? product_data.weight + ' гр.' : product_data.volume + ' мл.'}} </p>
+                <p class="h4 m-0 amount">{{ product_data.price }}  ₽</p><p class="h4 gramms m-0 amount">/{{ product_data.weight>0 ? product_data.weight + ' гр.' : product_data.volume + ' мл.'}} </p>
               </div>
             </div>
             <div class="d-grid gap-2 d-flex justify-content-between justify-xs-content-end  mt-4 ">
@@ -200,6 +200,10 @@ input::-webkit-inner-spin-button {
 }
 .amount{
   line-height: 1rem;
+}
+
+.gramms{
+  font-weight: 300;
 }
 
 .item-popup-enter-active,
