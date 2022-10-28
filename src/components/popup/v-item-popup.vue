@@ -120,10 +120,13 @@ export default {
     pasteDescription(){
       let text = this.product_data.description;
       if (text) {
-        text = text.replace(/(^|\.\s+)(.)/g, function(a, b, c){
+        text = text.toLowerCase().replace(/(^|\.\s+)(.)/g, function(a, b, c){
           return b + c.toUpperCase();
         });
         text = text.replace(/\r?\n|\r/g, "<br>");
+        text = text.replace(/способ/, "Способ");
+        
+        
       }
       document.getElementById("description").innerHTML = text ?? this.product_data.description;
     }
