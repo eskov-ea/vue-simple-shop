@@ -10,7 +10,8 @@
             </div>
             <div class="col-12 col-md-5 py-4 px-md-4 py-md-4">
               <h2 class="h2 mb-3 md-mb-5"> {{ product_data.name }} </h2>
-              <p class="mb-1 md-mb-4"> {{ product_data.description }} </p>
+              <div  class="mb-1 md-mb-4" id="description"> {{  }} </div>
+              <!-- <div  class="mb-1 md-mb-4"> {{ product_data.description }} </div> -->
               <p class="mb-2 md-mb-4"> Состав: {{ product_data.ingredients }}</p>
 
               <p class="h5 mb-2">
@@ -69,6 +70,9 @@ export default {
   name: "v-item-popup",
   // components: {VItemPopupControls},
   computed: mapGetters(["GET_DOMAIN", "GET_PORT"]),
+  updated(){
+    this.pasteDescription()
+  },
   props:{
     product_data: {
       type: Object,
@@ -113,6 +117,16 @@ export default {
     decreaseItemQuantity(){
       this.quantity > 1 ? this.quantity-- : this.quantity;
     },
+    pasteDescription(){
+      let text = this.product_data.description;
+      if (text) {
+        text = text.replace(/(^|\.\s+)(.)/g, function(a, b, c){
+          return b + c.toUpperCase();
+        });
+        text = text.replace(/\r?\n|\r/g, "<br>");
+      }
+      document.getElementById("description").innerHTML = text ?? this.product_data.description;
+    }
   },
   data(){
     return{
