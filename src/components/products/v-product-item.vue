@@ -10,7 +10,7 @@
       >
       <div class="card-body d-flex flex-column">
         <h5 class="card-title mb-1 d-flex"> {{ product_data.name }} </h5>
-        <p class="card-text mb-2"> {{ product_data.description }} </p>
+        <p class="card-text mb-2"> {{ truncateString(product_data.description, 200) }} </p>
         <div>
           <span class="h5"> {{ product_data.price }} &#8381;</span>
           <span>/{{ product_data.weight>0 ? product_data.weight + ' гр.' : product_data.volume + ' мл.'}} </span>
@@ -84,6 +84,13 @@ export default {
       let itemAmount = this.amount;
       this.OPEN_POPUP({itemData, itemAmount});
       lockBodyScroll();
+    },
+    truncateString(string, limit) {
+      if (string.length > limit) {
+        return string.substring(0, limit) + "..."
+      } else {
+        return string
+      }
     }
   },
   props: {
