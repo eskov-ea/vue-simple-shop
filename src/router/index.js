@@ -71,11 +71,6 @@ const routes = [
     name: 'PaymentAndOrderPolicy',
     component: () => import(/* webpackChunkName: "about" */ '../views/PaymentAndOrderPolicy.vue')
   },
-  {
-    path: '/refund',
-    name: 'RefundPolicy',
-    component: () => import(/* webpackChunkName: "about" */ '../views/RefundPolicy.vue')
-  },
 ]
 
 const router = createRouter({
