@@ -18,7 +18,7 @@
           <div class="form-check pe-5 col-12 col-md-4 d-flex align-items-center ps-0">
               <input class="form-check-input" type="radio" name="order_delivery" value="2" v-model="deliveryChoice" id="delivery" >
               <label class="form-check-label" for="delivery">
-                Доставка в черте города - 250 руб.
+                Доставка в черте города - {{ deliveryCost }} руб.
 		<br><small>(с 9:00 до 19:00)</small>
               </label>
           </div>
@@ -26,7 +26,7 @@
           <div class="form-check pe-5 col-12 col-md-4 d-flex align-items-center ps-0">
               <input class="form-check-input" type="radio" name="order_delivery" value="3" v-model="deliveryChoice" id="delivery" >
               <label class="form-check-label" for="delivery">
-                Доставка за городом - 350 руб.
+                Доставка за городом - {{ deliveryCostOutsite }} руб.
 		<br><small>(с 9:00 до 19:00)</small>
               </label>
           </div>
@@ -44,7 +44,7 @@
         <div class="order_cost mb-5">
           <p class="h6">Сумма заказа: {{ GET_TOTAL_COUNT }} &#8381; </p>
           <v-transition-expand>
-            <p v-show="deliveryChoice === '2' || deliveryChoice === '3'" class="h6 m-0">Сумма доставки: {{ deliveryCost }} &#8381; </p>
+            <p v-show="deliveryChoice === '2' || deliveryChoice === '3'" class="h6 m-0">Сумма доставки: {{ deliveryChoice === '2' ? deliveryCost : deliveryCostOutsite }} &#8381; </p>
           </v-transition-expand>
           <p class="h6 pt-2">Итого: {{ getTotalPrice() }} &#8381; </p>
         </div>
